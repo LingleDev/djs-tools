@@ -1,0 +1,32 @@
+{
+  "name": "tdjs-tools",
+  "version": "1.0.0",
+  "description": "A kit of tools for use with Discord.js",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FHGDev/djs-tools.git"
+  },
+  "keywords": [
+    "discord.js-tools",
+    "djs-tools",
+    "eris-tools",
+    "discordie-tools",
+    "discordio-tools"
+  ],
+  "author": "FHGDev",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@discordjs/opus": "^0.5.0",
+    "discord.js": "^12.5.3",
+    "ffmpeg-static": "^4.3.0",
+    "soundcloud-downloader": "^1.0.0",
+    "ytdl-core": "^4.7.0"
+  }
+}
