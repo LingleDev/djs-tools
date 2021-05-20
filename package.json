@@ -1,5 +1,5 @@
 {
-  "name": "djs-tools",
+  "name": "@fhgdev2023/djs-tools",
   "version": "1.0.0",
   "description": "A set of tools for Discord.js with webhooks, music, and more!",
   "main": "src/index.js",
@@ -21,13 +21,13 @@
   "author": "FHGDev",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "soundcloud-downloader": "^1.0.0",
+    "ytdl-core": "^4.8.0"
   },
   "devDependencies": {
     "@discordjs/opus": "^0.5.0",
     "discord.js": "^12.5.3",
-    "ffmpeg-static": "^4.3.0",
-    "soundcloud-downloader": "^1.0.0",
-    "ytdl-core": "^4.8.0"
+    "ffmpeg-static": "^4.3.0"
   }
 }
