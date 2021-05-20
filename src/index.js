@@ -1,4 +1,6 @@
 module.exports = {
     WebhookClient: require('./Webhooks/Webhook'),
-    MusicClient: {},
+    MusicPlayer: require('./Music/MusicPlayer'),
+    YouTubeClient: require('./Music/YouTube'),
+    SoundCloudClient: require('./Music/SoundCloud')
 }

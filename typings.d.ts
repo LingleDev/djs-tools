@@ -1,5 +1,6 @@
-import { VoiceChannel, MessageEmbed, Client } from "discord.js";
+import { VoiceChannel, MessageEmbed, Client, VoiceConnection, StreamDispatcher } from "discord.js";
 import { Response } from "node-fetch";
+import { Readable } from "stream"
 
 declare module "djs-tools" {
     class WebhookClient {
@@ -16,7 +17,7 @@ declare module "djs-tools" {
         public guilds: Array<Guild>;
     
         getSong(source: string, search: boolean, params: string): Object;
-        getMusicStream(url: string): ReadableStream | Error;
+        getMusicStream(url: string): Readable | Error;
 
         getMusicPlayer(guildId: string): MusicPlayer;
     }
@@ -33,28 +34,31 @@ declare module "djs-tools" {
     class MusicPlayer {
         constructor(client: Client);
 
-        streamPlaying: ReadableStream;
+        streamPlaying: Readable;
         urlPlaying: string;
 
 
-        playMusic(voiceChannel: VoiceChannel, search: boolean, params: string|ReadableStream, options: object): VoiceChannel;
+        playMusic(voiceChannel: VoiceChannel, source: string, search: boolean, params: string|Readable, options: object): StreamDispatcher;
     }
 
     class YouTubeClient {
         constructor(client: Client);
+        private client: Client;
+        public key: string;
 
-        init(options: { key: string }): Boolean;
+        init(key: string): Boolean;
 
-        getStream(url: string): ReadableStream;
-        search(params: string): string;
+        getStream(url: string): Promise<Readable>;
+        search(params: string): Promise<Array<string>>;
     }
 
     class SoundCloudClient {
         constructor(client: Client);
+        private client: Client;
 
-        init(options: { id: string }): Boolean;
+        init(id: string): Boolean;
 
-        getStream(url: string): ReadableStream;
+        getStream(url: string): Readable;
         search(params: string): string;
     }
 }
